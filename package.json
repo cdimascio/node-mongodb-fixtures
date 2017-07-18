@@ -1,6 +1,6 @@
 {
   "name": "mongodb-fixtures",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,9 @@
     "unloader",
     "schema"
   ],
+  "bin": {
+    "mongodb-fixtures": "bin/mongo-fixtures.js"
+  },
   "author": "Carmine DiMascio <cdimascio@gmail.com> (https://github.com/cdimascio)",
   "license": "MIT",
   "bugs": {
@@ -27,6 +30,7 @@
   "homepage": "https://github.com/cdimascio/node-mongodb-fixtures#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "commander": "^2.11.0",
     "mongodb": "^2.2.30"
   },
   "devDependencies": {

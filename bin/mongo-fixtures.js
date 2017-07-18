@@ -1,0 +1,114 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const path = require('path');
+const Fixtures = require('../index');
+const pkg = require('../package.json');
+
+const DEFAULT_PATH = 'fixtures';
+
+const required = (val, name) => {
+  if (!val) {
+    console.error(`${name} required.`);
+    process.exit(1);
+  }
+};
+
+let command;
+program.version(pkg.version);
+
+program.command('load').action(cmd => (command = 'load'));
+
+program.command('unload').action(cmd => (command = 'unload'));
+
+program.command('rebuild').action(cmd => (command = 'rebuild'));
+
+program
+  .option('-u --url <url>', 'mongo connection string')
+  .option('-s --ssl', 'use SSL', false)
+  .option('-d --db_name <name>', 'database name', false)
+  .option('-n --ssl_novlidate', 'use SSL with no verification', false)
+  .option('-c --ssl_ca <base64>', 'path to cert', false)
+  .option('-p --path <path>', 'resource path. Default ./' + DEFAULT_PATH, false)
+  .option('-b --verbose', 'verbose logs', false);
+
+program.parse(process.argv);
+
+validate();
+
+const dir = program.path
+  ? path.isAbsolute(program.path) ? program.path : path.join(process.cwd(), program.path)
+  : path.join(process.cwd(), DEFAULT_PATH);
+
+main({
+  command,
+  program: program,
+  dir,
+});
+
+function main(opts) {
+  const command = opts.command;
+  const program = opts.program;
+  const dir = opts.dir;
+
+  const uri = program.url;
+  const dbName = program.db_name;
+  const mongoOptions = {};
+
+  if (opts.program.ssl_novalidate) {
+    mongoOptions.ssl = true;
+    mongoOptions.sslValidate = false;
+  }
+  if (opts.program.ssl) {
+    mongoOptions.ssl = true;
+    mongoOptions.sslValidate = true;
+  }
+  if (opts.program.ssl_ca) {
+    mongoOptions.ssl = true;
+    mongoOptions.sslCA = [new Buffer(program.ssl_ca, 'base64')];
+  }
+
+  const fixtures = new Fixtures({ dir: dir });
+
+  switch (command) {
+    case 'load':
+      fixtures
+        .connect(uri, mongoOptions, dbName)
+        .load()
+        .catch(e => console.error(e))
+        .finally(() => fixtures.disconnect());
+      break;
+    case 'unload':
+      fixtures
+        .connect(uri, mongoOptions, dbName)
+        .unload()
+        .catch(e => console.error(e))
+        .finally(() => fixtures.disconnect());
+      break;
+    case 'rebuild':
+      fixtures
+        .connect(uri, mongoOptions, dbName)
+        .unload()
+        .then(() => fixtures.load())
+        .catch(e => console.error(e))
+        .finally(() => fixtures.disconnect());
+      break;
+    default:
+      exit('Invalid command.');
+  }
+}
+
+function validate() {
+  if (program.args.length === 0) exit();
+  if (!command) exit('Invalid command.');
+  if (!program.url) exit('Url required.');
+  if (program.args.length === 0) exit();
+}
+
+function exit(msg) {
+  if (msg) {
+    console.error('Error: ' + msg);
+  }
+  program.help();
+  process.exit(1);
+}

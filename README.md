@@ -12,14 +12,34 @@ Setup and tear down test fixtures with MongoDB.
 npm install node-mongodb-fixtures
 ```
 
+### CLI
+
+For CLI use, it can be useful to install globally:
+
+```shell
+npm install node-mongodb-fixtures -g
+```
+
+
 ## Usage
 
+### Programmatic
 ```javascript
 const Fixtures = require('node-mongodb-fixtures');
 const fixtures = new Fixtures(); 
 
 fixtures.connect('mongodb://localhost:27017/mydb').load() // load
 ```
+
+[See detailed programmatic usage below](#programmatic-usage)
+
+### CLI
+
+```shell
+❯ mongo-fixtures.js load -u mongodb://localhost:27017/mydb'
+```
+
+[See detailed cli usage below](#cli-usage)
 
 ## Create fixtures
 
@@ -47,7 +67,7 @@ fixtures/
 ```
 
 
-## Usage (detailed)
+## Programmatic Usage
 ### Init
 
 use the default fixtures directory,`./fixtures`
@@ -117,6 +137,34 @@ fixtures
   .catch(e => console.error(e))
   .finally(() => fixtures.disconnect());
 
+```
+
+## CLI Usage
+
+```shell
+❯ mongo-fixtures.js --help
+
+  Usage: mongo-fixtures [options] [command]
+
+
+  Options:
+
+    -V, --version         output the version number
+    -u --url <url>        mongo connection string
+    -s --ssl              use SSL
+    -d --db_name <name>   database name
+    -n --ssl_novlidate    use SSL with no verification
+    -c --ssl_ca <base64>  path to cert
+    -p --path <path>      resource path. Default ./fixtures
+    -b --verbose          verbose logs
+    -h, --help            output usage information
+
+
+  Commands:
+
+    load
+    unload
+    rebuild
 ```
 
 ## License
