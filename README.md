@@ -165,9 +165,6 @@ fixtures
     load    
     unload  
     rebuild 
-
-/tmp
-❯ 
 ```
 
 ## License
