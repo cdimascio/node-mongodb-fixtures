@@ -142,9 +142,9 @@ fixtures
 ## CLI Usage
 
 ```shell
-❯ mongodb-fixtures --help
+❯ mongodb-fixtures
 
-  Usage: mongo-fixtures [options] [command]
+  Usage: mongodb-fixtures [options] [command]
 
 
   Options:
@@ -162,9 +162,12 @@ fixtures
 
   Commands:
 
-    load
-    unload
-    rebuild
+    load    
+    unload  
+    rebuild 
+
+/tmp
+❯ 
 ```
 
 ## License
