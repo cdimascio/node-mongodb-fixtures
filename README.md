@@ -142,7 +142,7 @@ fixtures
 ## CLI Usage
 
 ```shell
-❯ mongo-fixtures.js --help
+❯ mongodb-fixtures --help
 
   Usage: mongo-fixtures [options] [command]
 
