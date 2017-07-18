@@ -123,7 +123,7 @@ fixtures.load()
 ### Unload
 
 ```javascript
-fixtures.load()
+fixtures.unload()
 ```  
 
 ### Disconnect
