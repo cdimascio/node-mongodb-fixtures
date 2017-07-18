@@ -20,7 +20,7 @@ For CLI use, it can be useful to install globally:
 npm install node-mongodb-fixtures -g
 ```
 
---
+---
 
 ## Try the Example
 
