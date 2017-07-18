@@ -52,7 +52,7 @@ fixtures.connect('mongodb://localhost:27017/mydb').load() // load
 
 ```json
 [
-  { "name": "Paul", "age", 36 }, 
+  { "name": "Paul", "age": 36 }, 
   { "name": "Phoebe", "age": 26 }
 ]
 ```
