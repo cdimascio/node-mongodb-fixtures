@@ -21,10 +21,9 @@ fixtures.connect('mongodb://localhost:27017/mydb').load() // load
 #### How
 
 1. Choose a directory for your fixtures e.g. `./fixtures` 
-- Create a number of JSON files.
-
-- Each JSON filename defines MongoDB collection.
-- Each file must contain a JSON Array of JSON objects. e.g. 
+2. Create a number of JSON files.
+	- Each JSON filename defines MongoDB collection.
+	- Each file must contain a JSON Array of JSON objects. e.g. 
 
 ```json
 [
