@@ -8,7 +8,9 @@ Setup and tear down test fixtures with MongoDB.
 )
 
 ## Install
-`npm install node-mongodb-fixtures`
+```shell
+npm install node-mongodb-fixtures
+```
 
 ## Usage
 
