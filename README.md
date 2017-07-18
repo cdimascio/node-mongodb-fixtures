@@ -20,6 +20,25 @@ For CLI use, it can be useful to install globally:
 npm install node-mongodb-fixtures -g
 ```
 
+--
+
+## Try the Example
+
+The following example will load the example fixtures into a MongoDB database
+
+#### Prequisite
+- A valid MongoDB connection string
+- node-mongodb-fixtures (*This example assumes it is installed globally*)
+
+### Run
+- clone this repo to get the sample fixtures i.e. `./examples/fixtures`
+- Execute
+	
+	```shell
+	❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures
+	```
+
+---
 
 ## Usage
 
@@ -36,10 +55,11 @@ fixtures.connect('mongodb://localhost:27017/mydb').load() // load
 ### CLI
 
 ```shell
-❯ mongo-fixtures.js load -u mongodb://localhost:27017/mydb'
+❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb'
 ```
 
 [See detailed cli usage below](#cli-usage)
+
 
 ## Create fixtures
 
