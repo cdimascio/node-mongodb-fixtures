@@ -1,0 +1,18 @@
+[
+   {
+      "name": "Fenway Park",
+      "type": "ballpark"
+   },
+   {
+      "name": "Grand Canyon",
+      "type": "national park"
+   },
+   {
+      "name": "Nubble Lighthose",
+      "type": "lighthouse"
+   },
+    {
+      "name": "Lincoln Memorial",
+      "type": "national monument"
+   }
+]

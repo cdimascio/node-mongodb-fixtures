@@ -1,0 +1,36 @@
+{
+  "name": "mongodb-fixtures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdimascio/node-mongodb-fixtures.git"
+  },
+  "keywords": [
+    "mongodb",
+    "fixtures",
+    "loader",
+    "tests",
+    "unit-tests",
+    "unloader",
+    "schema"
+  ],
+  "author": "Carmine DiMascio <cdimascio@gmail.com> (https://github.com/cdimascio)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cdimascio/node-mongodb-fixtures/issues"
+  },
+  "homepage": "https://github.com/cdimascio/node-mongodb-fixtures#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "mongodb": "^2.2.30"
+  },
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-plugin-prettier": "^2.1.2"
+  }
+}
