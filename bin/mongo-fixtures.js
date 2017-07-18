@@ -75,14 +75,14 @@ function main(opts) {
       fixtures
         .connect(uri, mongoOptions, dbName)
         .load()
-        .catch(e => console.error(e))
+        .catch(e => console.error(e.message))
         .finally(() => fixtures.disconnect());
       break;
     case 'unload':
       fixtures
         .connect(uri, mongoOptions, dbName)
         .unload()
-        .catch(e => console.error(e))
+        .catch(e => console.error(e.message))
         .finally(() => fixtures.disconnect());
       break;
     case 'rebuild':
@@ -90,7 +90,7 @@ function main(opts) {
         .connect(uri, mongoOptions, dbName)
         .unload()
         .then(() => fixtures.load())
-        .catch(e => console.error(e))
+        .catch(e => console.error(e.message))
         .finally(() => fixtures.disconnect());
       break;
     default:
@@ -107,7 +107,7 @@ function validate() {
 
 function exit(msg) {
   if (msg) {
-    console.error('Error: ' + msg);
+    console.log('Error: ' + msg);
   }
   program.help();
   process.exit(1);
