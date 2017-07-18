@@ -1,7 +1,10 @@
 const Promise = require('bluebird');
 const Fixtures = require('../index');
 
+// The MongoDB Connection URL
 const uri = '<YOUR-URI>'
+
+// The MongoDB options object
 // const options = {
 //   ssl: true,
 //   sslValidate: true,

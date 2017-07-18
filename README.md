@@ -114,6 +114,18 @@ Use the standard MongoDB [URI connection scheme](https://docs.mongodb.com/manual
 fixtures.connect('mongodb://localhost:27017/mydb')
 ```
 
+
+
+**connect(uri, options, dbName)**
+
+| arg  | type | description |
+| ------------- | ------------- | ------------- |
+| `uri`  | string (required)  | [MongoDB connection string](https://docs.mongodb.com/manual/reference/connection-string/) |
+| `options`  | object (optional)  | [MongoDB connection options](http://mongodb.github.io/node-mongodb-native/2.2/api/MongoClient.html#connect) |
+| `dbName`  | string (optional)  | identifies a database to switch to. Useful when the db in the connection string differs from the db you want to connect to |
+
+See: `./examples/ex1.js`
+
 ### Load
 
 ```javascript
