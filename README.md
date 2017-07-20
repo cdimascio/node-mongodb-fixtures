@@ -220,5 +220,19 @@ fixtures
     rebuild 
 ```
 
+## Example Output
+
+```shell
+❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures
+[info ] Using fixtures directory: /Users/dimascio/git/node-mongodb-fixtures/examples/fixtures
+[info ] Using database mydb
+[start] load people
+[done ] load people
+[start] load places
+[start] load places
+[done ] load places
+[done ] *load all
+```
+
 ## License
 [MIT](https://opensource.org/licenses/MIT)
