@@ -66,9 +66,13 @@ fixtures.connect('mongodb://localhost:27017/mydb').load() // load
 #### How
 
 1. Choose a directory for your fixtures e.g. `./fixtures` 
-2. Create a number of JSON files.
-	- Each JSON filename defines MongoDB collection.
-	- Each file must contain a JSON Array of JSON objects. e.g. 
+2. Create any mix of JSON (`.json`), JavaScript (`.js`), or Typefiles (`.ts`) files.
+3. Each filename defines a MongoDB collection
+
+  JSON files should:
+
+  - Each contain a JSON Array of JSON objects. e.g. 
+  - Each JSON object is loaded as a document in the collection.
 
 ```json
 [
@@ -76,15 +80,32 @@ fixtures.connect('mongodb://localhost:27017/mydb').load() // load
   { "name": "Phoebe", "age": 26 }
 ]
 ```
-- Each JSON object is loaded as a document in the collection.
 
-#### Example
+  JavaScript (or TypeScript) files should:
+	
+  - Each return a JSON Array of JSON objects. e.g. 
+  - Each JSON object is loaded as a document in the collection.
+
+```JavaScript
+
+var ObjectId = require('mongodb').ObjectID;
+
+module.exports = [
+  { _id: ObjectId(), name: 'Paul, 'age': 36 },
+  { _id: ObjectId(), name: 'Phoebe, 'age': 26 },
+];
+```
+
+#### Example Structure
 
 ```
 fixtures/
-|-- people.json
+|-- people.js
 |-- places.json
 ```
+
+See `./examples/fixtures`
+
 
 
 ## Programmatic Usage
