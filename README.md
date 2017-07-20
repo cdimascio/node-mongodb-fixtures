@@ -91,7 +91,7 @@ fixtures.connect('mongodb://localhost:27017/mydb').load() // load
 var ObjectId = require('mongodb').ObjectID;
 
 module.exports = [
-  { _id: ObjectId(), name: 'Paul, 'age': 36 },
+  { _id: ObjectId(), name: 'Paul', 'age': 36 },
   { _id: ObjectId(), name: 'Phoebe, 'age': 26 },
 ];
 ```
