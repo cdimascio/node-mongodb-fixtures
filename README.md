@@ -227,9 +227,8 @@ fixtures
 [info ] Using fixtures directory: /Users/dimascio/git/node-mongodb-fixtures/examples/fixtures
 [info ] Using database mydb
 [start] load people
+[start] load places
 [done ] load people
-[start] load places
-[start] load places
 [done ] load places
 [done ] *load all
 ```
