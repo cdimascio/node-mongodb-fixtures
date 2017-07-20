@@ -92,7 +92,7 @@ var ObjectId = require('mongodb').ObjectID;
 
 module.exports = [
   { _id: ObjectId(), name: 'Paul', 'age': 36 },
-  { _id: ObjectId(), name: 'Phoebe, 'age': 26 },
+  { _id: ObjectId(), name: 'Phoebe', 'age': 26 },
 ];
 ```
 
