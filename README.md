@@ -106,7 +106,36 @@ fixtures/
 
 See `./examples/fixtures`
 
+## Collection Scripts: Indexes and more...
 
+"Collection scripts" enable you to inject your own custom logic in the fixture creation lifecycle. Each custom script is passed a reference to a MongoDB collection. You may use this reference to modify the collection however you like. For example, you can add indexes and more.
+
+### How
+
+1. Create a new JavaScript file with an underscore `_` suffix. e.g. `people_.js`.
+2. The `_` denotes a script. The text preceding it, `people`, is the collection name.
+3. Each script is passed a single argument, the collection.
+4. Each must return a `function` that takes a `collection` and returns a `Promise`.
+
+#### Example
+
+```
+// people_.js
+module.exports = function(collection) {
+  // Write your custom logic and return a promise
+  return collection.createIndex( { "address.city": 1 }, { unique: false } );
+}
+```
+
+
+```
+fixtures/
+|-- people_.js
+|-- people.js
+|-- places.json
+```
+
+**Note:** Custom scripts run after all fixtures have completed.
 
 ## Programmatic Usage
 ### Init
@@ -150,19 +179,19 @@ See: `./examples/ex1.js`
 ### Load
 
 ```javascript
-fixtures.load()
+fixtures.load() // returns a promise
 ```  
 
 ### Unload
 
 ```javascript
-fixtures.unload()
+fixtures.unload()  // returns a promise
 ```  
 
 ### Disconnect
 
 ```javascript
-fixtures.disconnect()
+fixtures.disconnect() // returns a promise
 ```  
 
 ## Example
@@ -223,7 +252,6 @@ fixtures
 ## Example Output
 
 ```shell
-❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures
 [info ] Using fixtures directory: /Users/dimascio/git/node-mongodb-fixtures/examples/fixtures
 [info ] Using database mydb
 [start] load people
@@ -231,6 +259,9 @@ fixtures
 [done ] load people
 [done ] load places
 [done ] *load all
+[start] script people_.js
+[done ] script people_.js
+[done ] *script all
 ```
 
 ## License
