@@ -120,7 +120,7 @@ See `./examples/fixtures`
 
 #### Example
 
-```
+```Javascript
 // people_.js
 module.exports = function(collection) {
   // Write your custom logic and return a promise
