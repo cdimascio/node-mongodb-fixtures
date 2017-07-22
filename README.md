@@ -2,7 +2,8 @@
 
 ![](https://img.shields.io/badge/status-stable-green.svg) ![](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Setup and tear down test fixtures with MongoDB.
+**Setup and tear down test fixtures with MongoDB.**
+Use custom scripts to create indexes and more!
 
 ![](https://github.com/cdimascio/node-mongodb-fixtures/raw/3fd02679f26a21f18d5115626a5759b5866248a9/assets/mongodb-creative-commons.jpeg
 )
