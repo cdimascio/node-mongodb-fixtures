@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
 const program = require('commander');
 const path = require('path');
 const Fixtures = require('../index');
@@ -28,7 +29,7 @@ program
   .option('-s --ssl', 'use SSL', false)
   .option('-d --db_name <name>', 'database name', false)
   .option('-n --ssl_novlidate', 'use SSL with no verification', false)
-  .option('-c --ssl_ca <base64>', 'path to cert', false)
+  .option('-c --ssl_ca <path/to/cert>', 'path to cert', false)
   .option('-p --path <path>', 'resource path. Default ./' + DEFAULT_PATH, false)
   .option('-b --verbose', 'verbose logs', false);
 
@@ -65,7 +66,8 @@ function main(opts) {
   }
   if (opts.program.ssl_ca) {
     mongoOptions.ssl = true;
-    mongoOptions.sslCA = [new Buffer(program.ssl_ca, 'base64')];
+    mongoOptions.sslCA = [fs.readFileSync(opts.program.ssl_ca)];
+    // mongoOptions.sslCA = [new Buffer(program.ssl_ca, 'base64')];
   }
 
   const fixtures = new Fixtures({ dir: dir });

@@ -237,7 +237,7 @@ fixtures
     -s --ssl              use SSL
     -d --db_name <name>   database name
     -n --ssl_novlidate    use SSL with no verification
-    -c --ssl_ca <base64>  path to cert
+    -c --ssl_ca </path/to/cert>  path to cert
     -p --path <path>      resource path. Default ./fixtures
     -b --verbose          verbose logs
     -h, --help            output usage information
