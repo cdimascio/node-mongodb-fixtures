@@ -91,6 +91,7 @@ function main(opts) {
       fixtures
         .connect(uri, mongoOptions, dbName)
         .unload()
+        .catch(e => {})
         .then(() => fixtures.load())
         .catch(e => console.error(e.message))
         .finally(() => fixtures.disconnect());
