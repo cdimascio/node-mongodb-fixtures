@@ -1,6 +1,6 @@
 {
   "name": "node-mongodb-fixtures",
-  "version": "1.4.0",
+  "version": "1.5.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,8 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "commander": "^2.11.0",
-    "mongodb": "^2.2.30"
+    "mongodb": "^2.2.30",
+    "mute": "^2.0.6"
   },
   "devDependencies": {
     "eslint": "^4.2.0",
