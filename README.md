@@ -265,5 +265,11 @@ fixtures
 [done ] *script all
 ```
 
+## Contributors
+Contributors are welcome!
+
+- [cdimascio](https://www.github.com/cdimascio)
+- [Mykolas-Molis](https://github.com/Mykolas-Molis)
+
 ## License
 [MIT](https://opensource.org/licenses/MIT)
