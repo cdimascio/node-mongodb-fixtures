@@ -14,10 +14,9 @@ const mongoOpts = {};
 const fixtures = new Fixtures({ dir: 'examples/fixtures' });
 fixtures
   .connect(uri, mongoOpts)
-  .unload()
-  .catch(e => console.error(e))
+  .then(() => fixtures.unload())
   .then(() => fixtures.load())
-  .catch(e => console.error(e))
+  .catch(console.error)
   .finally(() => fixtures.disconnect());
 
   
