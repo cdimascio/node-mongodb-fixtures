@@ -67,7 +67,7 @@ fixtures.connect('mongodb://localhost:27017/mydb').load() // load
 #### How
 
 1. Choose a directory for your fixtures e.g. `./fixtures` 
-2. Create any mix of JSON (`.json`), JavaScript (`.js`), or Typefiles (`.ts`) files.
+2. Create any mix of JSON (`.json`), JavaScript (`.js`), or TypeScript files (`.ts`) files.
 3. Each filename defines a MongoDB collection
 
   JSON files should:
