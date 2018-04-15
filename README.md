@@ -5,10 +5,10 @@
 **Setup and tear down test fixtures with MongoDB.**
 Use custom scripts to create indexes and more!
 
-![](https://github.com/cdimascio/node-mongodb-fixtures/raw/3fd02679f26a21f18d5115626a5759b5866248a9/assets/mongodb-creative-commons.jpeg
-)
+![](https://github.com/cdimascio/node-mongodb-fixtures/raw/3fd02679f26a21f18d5115626a5759b5866248a9/assets/mongodb-creative-commons.jpeg)
 
 ## Install
+
 ```shell
 npm install node-mongodb-fixtures
 ```
@@ -28,25 +28,25 @@ npm install node-mongodb-fixtures -g
 The following example will load the example fixtures into a MongoDB database
 
 #### Prequisite
-- A valid MongoDB connection string
-- node-mongodb-fixtures (*This example assumes it is installed globally*)
+
+* A valid MongoDB connection string
+* node-mongodb-fixtures (_This example assumes it is installed globally_)
 
 ### Run
-- clone this repo to get the sample fixtures i.e. `./examples/fixtures`
-- Execute
-	
-	```shell
-	❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures
-	```
+
+* clone this repo to get the sample fixtures i.e. `./examples/fixtures`
+* Execute
+  `shell ❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
 
 ---
 
 ## Usage
 
 ### Programmatic
+
 ```javascript
 const Fixtures = require('node-mongodb-fixtures');
-const fixtures = new Fixtures(); 
+const fixtures = new Fixtures();
 
 fixtures.connect('mongodb://localhost:27017/mydb')
   then(() => fixtures.load())
@@ -62,34 +62,31 @@ fixtures.connect('mongodb://localhost:27017/mydb')
 
 [See detailed cli usage below](#cli-usage)
 
-
 ## Create fixtures
 
 #### How
 
-1. Choose a directory for your fixtures e.g. `./fixtures` 
-2. Create any mix of JSON (`.json`), JavaScript (`.js`), or Typefiles (`.ts`) files.
+1. Choose a directory for your fixtures e.g. `./fixtures`
+2. Create any mix of JSON (`.json`), JavaScript (`.js`), or TypeScript files (`.ts`) files. (see file rules below)
 3. Each filename defines a MongoDB collection
 
-  JSON files should:
+**JSON Files**
 
-  - Each contain a JSON Array of JSON objects. e.g. 
-  - Each JSON object is loaded as a document in the collection.
+The name of the JSON file is becomes collection name. Each JSON file **_must_** contain a 'JSON Array of JSON objects'. Each JSON object is loaded as a document in the collection.
+
+JSON files are useful when you can represent all of your documents as JSON.
 
 ```json
-[
-  { "name": "Paul", "age": 36 }, 
-  { "name": "Phoebe", "age": 26 }
-]
+[{ "name": "Paul", "age": 36 }, { "name": "Phoebe", "age": 26 }]
 ```
 
-  JavaScript (or TypeScript) files should:
-	
-  - Each return a JSON Array of JSON objects. e.g. 
-  - Each JSON object is loaded as a document in the collection.
+**JavaScript (or TypeScript) Files**
+
+The name of the JSON file is becomes collection name. Each `.js` or `.ts` files must return a 'JSON Array of JSON objects'. Each JSON object is loaded as a document in the collection.
+
+JavaScript files are useful when you require code to represent your documents.
 
 ```JavaScript
-
 var ObjectId = require('mongodb').ObjectID;
 
 module.exports = [
@@ -129,7 +126,6 @@ module.exports = function(collection) {
 }
 ```
 
-
 ```
 fixtures/
 |-- people_.js
@@ -140,13 +136,14 @@ fixtures/
 **Note:** Custom scripts run after all fixtures have completed.
 
 ## Programmatic Usage
+
 ### Init
 
 use the default fixtures directory,`./fixtures`
 
 ```javascript
 const Fixtures = require('node-mongodb-fixtures');
-const fixtures = new Fixtures(); 
+const fixtures = new Fixtures();
 ```
 
 or specifiy the fixtures directory
@@ -156,63 +153,61 @@ const Fixtures = require('node-mongodb-fixtures');
 const fixtures = new Fixtures({
  dir: 'examples/fixtures',
  mute: false // do not mute the log output 
-}); 
+});
 ```
 
-
 ### Connect
+
 Use the standard MongoDB [URI connection scheme](https://docs.mongodb.com/manual/reference/connection-string/)
 
 ```javascript
 fixtures.connect('mongodb://localhost:27017/mydb') // returns a promise
 ```
 
-
-
 **connect(uri, options, dbName)**
 
-| arg  | type | description |
-| ------------- | ------------- | ------------- |
-| `uri`  | string (required)  | [MongoDB connection string](https://docs.mongodb.com/manual/reference/connection-string/) |
-| `options`  | object (optional)  | [MongoDB connection options](http://mongodb.github.io/node-mongodb-native/2.2/api/MongoClient.html#connect) |
-| `dbName`  | string (optional)  | identifies a database to switch to. Useful when the db in the connection string differs from the db you want to connect to |
+| arg       | type              | description                                                                                                                |
+| --------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `uri`     | string (required) | [MongoDB connection string](https://docs.mongodb.com/manual/reference/connection-string/)                                  |
+| `options` | object (optional) | [MongoDB connection options](http://mongodb.github.io/node-mongodb-native/2.2/api/MongoClient.html#connect)                |
+| `dbName`  | string (optional) | identifies a database to switch to. Useful when the db in the connection string differs from the db you want to connect to |
 
 See: `./examples/ex1.js`
 
 ### Load
 
 ```javascript
-fixtures.load() // returns a promise
-```  
+fixtures.load(); // returns a promise
+```
 
 ### Unload
 
 ```javascript
-fixtures.unload()  // returns a promise
-```  
+fixtures.unload(); // returns a promise
+```
 
 ### Disconnect
 
 ```javascript
-fixtures.disconnect() // returns a promise
-```  
+fixtures.disconnect(); // returns a promise
+```
 
 ## Example
 
 The following example does the following:
-- connects to mongo
-- then unloads all fixtures
-- then load all fixtures
-- then disconnects
 
+* connects to mongo
+* then unloads all fixtures
+* then load all fixtures
+* then disconnects
 
 ```javascript
 const Fixtures = require('node-mongodb-fixtures');
-const uri = 'mongodb://localhost/mydb'
+const uri = 'mongodb://localhost/mydb';
 const options = null;
 
 const fixtures = new Fixtures({
- dir: 'examples/fixtures' 
+  dir: 'examples/fixtures',
 });
 
 fixtures
@@ -221,7 +216,6 @@ fixtures
   .then(() => fixtures.load())
   .catch(e => console.error(e))
   .finally(() => fixtures.disconnect());
-
 ```
 
 ## CLI Usage
@@ -247,9 +241,9 @@ fixtures
 
   Commands:
 
-    load    
+    load
     unload  
-    rebuild 
+    rebuild
 ```
 
 ## Example Output
@@ -267,5 +261,13 @@ fixtures
 [done ] *script all
 ```
 
+## Contributors
+
+Contributors are welcome!
+
+* [cdimascio](https://www.github.com/cdimascio)
+* [Mykolas-Molis](https://github.com/Mykolas-Molis)
+
 ## License
+
 [MIT](https://opensource.org/licenses/MIT)
