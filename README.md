@@ -48,7 +48,8 @@ The following example will load the example fixtures into a MongoDB database
 const Fixtures = require('node-mongodb-fixtures');
 const fixtures = new Fixtures();
 
-fixtures.connect('mongodb://localhost:27017/mydb').load();
+fixtures.connect('mongodb://localhost:27017/mydb')
+  then(() => fixtures.load())
 ```
 
 [See detailed programmatic usage below](#programmatic-usage)
@@ -150,7 +151,8 @@ or specifiy the fixtures directory
 ```javascript
 const Fixtures = require('node-mongodb-fixtures');
 const fixtures = new Fixtures({
-  dir: 'examples/fixtures',
+ dir: 'examples/fixtures',
+ mute: false // do not mute the log output 
 });
 ```
 
@@ -159,7 +161,7 @@ const fixtures = new Fixtures({
 Use the standard MongoDB [URI connection scheme](https://docs.mongodb.com/manual/reference/connection-string/)
 
 ```javascript
-fixtures.connect('mongodb://localhost:27017/mydb');
+fixtures.connect('mongodb://localhost:27017/mydb') // returns a promise
 ```
 
 **connect(uri, options, dbName)**
@@ -210,7 +212,7 @@ const fixtures = new Fixtures({
 
 fixtures
   .connect('mongodb://localhost:27017/mydb')
-  .unload()
+  .then(() => fixtures.unload())
   .then(() => fixtures.load())
   .catch(e => console.error(e))
   .finally(() => fixtures.disconnect());
