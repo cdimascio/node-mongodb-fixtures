@@ -1,6 +1,6 @@
 {
   "name": "node-mongodb-fixtures",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,8 +22,7 @@
   "bin": {
     "mongodb-fixtures": "bin/mongo-fixtures.js"
   },
-  "author":
-    "Carmine DiMascio <cdimascio@gmail.com> (https://github.com/cdimascio)",
+  "author": "Carmine DiMascio <cdimascio@gmail.com> (https://github.com/cdimascio)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cdimascio/node-mongodb-fixtures/issues"
