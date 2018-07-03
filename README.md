@@ -265,8 +265,11 @@ fixtures
 
 Contributors are welcome!
 
+Special thanks to those who have contributed:
+
 * [cdimascio](https://www.github.com/cdimascio)
 * [Mykolas-Molis](https://github.com/Mykolas-Molis)
+* [westyside](https://github.com/westyside)
 
 ## License
 
