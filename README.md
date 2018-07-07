@@ -29,13 +29,13 @@ The following example will load the example fixtures into a MongoDB database
 
 #### Prequisite
 
-* A valid MongoDB connection string
-* node-mongodb-fixtures (_This example assumes it is installed globally_)
+- A valid MongoDB connection string
+- node-mongodb-fixtures (_This example assumes it is installed globally_)
 
 ### Run
 
-* clone this repo to get the sample fixtures i.e. `./examples/fixtures`
-* Execute
+- clone this repo to get the sample fixtures i.e. `./examples/fixtures`
+- Execute
   `shell ❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
 
 ---
@@ -48,8 +48,11 @@ The following example will load the example fixtures into a MongoDB database
 const Fixtures = require('node-mongodb-fixtures');
 const fixtures = new Fixtures();
 
-fixtures.connect('mongodb://localhost:27017/mydb')
-  then(() => fixtures.load())
+fixtures
+  .connect('mongodb://localhost:27017/mydb')
+  .then(() => fixtures.unload())
+  .then(() => fixtures.load())
+  .then(() => fixtures.disconnect());
 ```
 
 [See detailed programmatic usage below](#programmatic-usage)
@@ -66,9 +69,9 @@ fixtures.connect('mongodb://localhost:27017/mydb')
 
 #### How
 
-1. Choose a directory for your fixtures e.g. `./fixtures`
-2. Create any mix of JSON (`.json`), JavaScript (`.js`), or TypeScript files (`.ts`) files. (see file rules below)
-3. Each filename defines a MongoDB collection
+1.  Choose a directory for your fixtures e.g. `./fixtures`
+2.  Create any mix of JSON (`.json`), JavaScript (`.js`), or TypeScript files (`.ts`) files. (see file rules below)
+3.  Each filename defines a MongoDB collection
 
 **JSON Files**
 
@@ -111,10 +114,10 @@ See `./examples/fixtures`
 
 ### How
 
-1. Create a new JavaScript file with an underscore `_` suffix. e.g. `people_.js`.
-2. The `_` denotes a script. The text preceding it, `people`, is the collection name.
-3. Each script is passed a single argument, the collection.
-4. Each must return a `function` that takes a `collection` and returns a `Promise`.
+1.  Create a new JavaScript file with an underscore `_` suffix. e.g. `people_.js`.
+2.  The `_` denotes a script. The text preceding it, `people`, is the collection name.
+3.  Each script is passed a single argument, the collection.
+4.  Each must return a `function` that takes a `collection` and returns a `Promise`.
 
 #### Example
 
@@ -151,8 +154,8 @@ or specifiy the fixtures directory
 ```javascript
 const Fixtures = require('node-mongodb-fixtures');
 const fixtures = new Fixtures({
- dir: 'examples/fixtures',
- mute: false // do not mute the log output 
+  dir: 'examples/fixtures',
+  mute: false, // do not mute the log output
 });
 ```
 
@@ -161,7 +164,7 @@ const fixtures = new Fixtures({
 Use the standard MongoDB [URI connection scheme](https://docs.mongodb.com/manual/reference/connection-string/)
 
 ```javascript
-fixtures.connect('mongodb://localhost:27017/mydb') // returns a promise
+fixtures.connect('mongodb://localhost:27017/mydb'); // returns a promise
 ```
 
 **connect(uri, options, dbName)**
@@ -196,10 +199,10 @@ fixtures.disconnect(); // returns a promise
 
 The following example does the following:
 
-* connects to mongo
-* then unloads all fixtures
-* then load all fixtures
-* then disconnects
+- connects to mongo
+- then unloads all fixtures
+- then load all fixtures
+- then disconnects
 
 ```javascript
 const Fixtures = require('node-mongodb-fixtures');
@@ -267,9 +270,9 @@ Contributors are welcome!
 
 Special thanks to those who have contributed:
 
-* [cdimascio](https://www.github.com/cdimascio)
-* [Mykolas-Molis](https://github.com/Mykolas-Molis)
-* [westyside](https://github.com/westyside)
+- [cdimascio](https://www.github.com/cdimascio)
+- [Mykolas-Molis](https://github.com/Mykolas-Molis)
+- [westyside](https://github.com/westyside)
 
 ## License
 
