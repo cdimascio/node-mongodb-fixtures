@@ -76,21 +76,21 @@ function main(opts) {
     case 'load':
       fixtures
         .connect(uri, mongoOptions, dbName)
-        .load()
+        .then(() => fixtures.load())
         .catch(e => console.error(e.message))
         .finally(() => fixtures.disconnect());
       break;
     case 'unload':
       fixtures
         .connect(uri, mongoOptions, dbName)
-        .unload()
+        .then(() => fixtures.unload())
         .catch(e => console.error(e.message))
         .finally(() => fixtures.disconnect());
       break;
     case 'rebuild':
       fixtures
         .connect(uri, mongoOptions, dbName)
-        .unload()
+        .then(() => fixtures.unload())
         .catch(e => {})
         .then(() => fixtures.load())
         .catch(e => console.error(e.message))
