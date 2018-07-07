@@ -23,23 +23,6 @@ npm install node-mongodb-fixtures -g
 
 ---
 
-## Try the Example
-
-The following example will load the example fixtures into a MongoDB database
-
-#### Prequisite
-
-- A valid MongoDB connection string
-- node-mongodb-fixtures (_This example assumes it is installed globally_)
-
-### Run
-
-- clone this repo to get the sample fixtures i.e. `./examples/fixtures`
-- Execute
-  `shell ❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
-
----
-
 ## Usage
 
 ### Programmatic
@@ -64,6 +47,19 @@ fixtures
 ```
 
 [See detailed cli usage below](#cli-usage)
+
+---
+
+## Try the Example
+
+The following example will load the example fixtures into a locally running MongoDB. To use another DB modify the the connection url accordingly (in step 2)
+
+### Run
+
+1. `git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
+- `bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
+
+---
 
 ## Create fixtures
 
