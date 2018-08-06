@@ -261,6 +261,7 @@ fixtures
 ```shell
 [info ] Using fixtures directory: /Users/dimascio/git/node-mongodb-fixtures/examples/fixtures
 [info ] Using database mydb
+[info ] No filtering in use
 [start] load people
 [start] load places
 [done ] load people
