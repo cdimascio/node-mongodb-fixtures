@@ -31,7 +31,7 @@ program
   .option('-n --ssl_novalidate', 'use SSL with no verification', false)
   .option('-c --ssl_ca <path/to/cert>', 'path to cert', false)
   .option('-p --path <path>', 'resource path. Default ./' + DEFAULT_PATH, false)
-  .option('-f --filter <pattern>', 'regex pattern to filter fixture names', false)
+  .option('-f --filter <pattern>', 'regex pattern to filter fixture names e.g. \'.*people\'', false)
   .option('-b --verbose', 'verbose logs', false);
 
 program.parse(process.argv);
