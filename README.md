@@ -57,7 +57,7 @@ The following example will load the example fixtures into a locally running Mong
 ### Run
 
 1. `git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
-- `bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
+- `node bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
 
 ---
 
@@ -155,6 +155,16 @@ const fixtures = new Fixtures({
 });
 ```
 
+or filter the fixtures present in the directory with a Regex pattern
+
+```javascript
+const Fixtures = require('node-mongodb-fixtures');
+const fixtures = new Fixtures({
+  dir: 'examples/fixtures',
+  filter: 'people.*'
+});
+```
+
 ### Connect
 
 Use the standard MongoDB [URI connection scheme](https://docs.mongodb.com/manual/reference/connection-string/)
@@ -231,9 +241,10 @@ fixtures
     -u --url <url>        mongo connection string
     -s --ssl              use SSL
     -d --db_name <name>   database name
-    -n --ssl_novlidate    use SSL with no verification
+    -n --ssl_novalidate   use SSL with no verification
     -c --ssl_ca </path/to/cert>  path to cert
     -p --path <path>      resource path. Default ./fixtures
+    -f --filter <pattern> regex pattern to filter fixture names
     -b --verbose          verbose logs
     -h, --help            output usage information
 
