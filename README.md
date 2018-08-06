@@ -57,7 +57,7 @@ The following example will load the example fixtures into a locally running Mong
 ### Run
 
 1. `git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
-- `bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
+- `node bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
 
 ---
 
@@ -152,6 +152,16 @@ const Fixtures = require('node-mongodb-fixtures');
 const fixtures = new Fixtures({
   dir: 'examples/fixtures',
   mute: false, // do not mute the log output
+});
+```
+
+or filter the fixtures present in the directory with a Regex pattern
+
+```javascript
+const Fixtures = require('node-mongodb-fixtures');
+const fixtures = new Fixtures({
+  dir: 'examples/fixtures',
+  filter: 'people.*'
 });
 ```
 

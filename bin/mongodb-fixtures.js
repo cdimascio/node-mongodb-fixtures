@@ -28,9 +28,10 @@ program
   .option('-u --url <url>', 'mongo connection string')
   .option('-s --ssl', 'use SSL', false)
   .option('-d --db_name <name>', 'database name', false)
-  .option('-n --ssl_novlidate', 'use SSL with no verification', false)
+  .option('-n --ssl_novalidate', 'use SSL with no verification', false)
   .option('-c --ssl_ca <path/to/cert>', 'path to cert', false)
   .option('-p --path <path>', 'resource path. Default ./' + DEFAULT_PATH, false)
+  .option('-f --filter <pattern>', 'regex pattern to filter fixture names', false)
   .option('-b --verbose', 'verbose logs', false);
 
 program.parse(process.argv);
@@ -51,6 +52,7 @@ function main(opts) {
   const command = opts.command;
   const program = opts.program;
   const dir = opts.dir;
+  const filter = program.filter;
 
   const uri = program.url;
   const dbName = program.db_name;
@@ -70,7 +72,7 @@ function main(opts) {
     // mongoOptions.sslCA = [new Buffer(program.ssl_ca, 'base64')];
   }
 
-  const fixtures = new Fixtures({ dir: dir });
+  const fixtures = new Fixtures({ dir: dir, filter: filter });
 
   switch (command) {
     case 'load':
