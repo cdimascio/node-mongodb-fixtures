@@ -1,7 +1,7 @@
 const Fixtures = require('../index');
 
 // The MongoDB Connection URL
-const uri = '<YOUR-URI>';
+const uri = 'mongodb://localhost:27017/mydb';
 
 // The MongoDB options object
 const mongoOpts = {};
@@ -11,7 +11,10 @@ const mongoOpts = {};
 //   sslCA: myCert,
 // };
 
-const fixtures = new Fixtures({ dir: 'examples/fixtures' });
+const fixtures = new Fixtures({ 
+  dir: 'examples/fixtures', 
+  filter: '.*' // optional
+});
 fixtures
   .connect(uri, mongoOpts)
   .then(() => fixtures.unload())
