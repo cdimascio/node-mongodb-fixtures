@@ -54,10 +54,16 @@ fixtures
 
 The following example will load the example fixtures into a locally running MongoDB. To use another DB modify the the connection url accordingly (in step 2)
 
-### Run
+### Run the example
 
-1. `git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
-- `node bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures`
+1. Clone the reop
+  ```shell
+  git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
+  ```
+2. Load the fixtures into MongoDb
+  ```shell
+  node bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures
+  ```
 
 ---
 
