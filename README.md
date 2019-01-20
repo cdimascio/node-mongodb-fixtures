@@ -6,9 +6,7 @@
 
 Use custom scripts to create indexes and more!
 
-Use the CLI or the Node module.
-
-![](https://github.com/cdimascio/node-mongodb-fixtures/raw/3fd02679f26a21f18d5115626a5759b5866248a9/assets/mongodb-fixtures-log.png)
+![](https://raw.githubusercontent.com/cdimascio/node-mongodb-fixtures/master/assets/mongodb-fixtures-logo.png)
 
 ## Install
 
@@ -76,7 +74,7 @@ node bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./exampl
 #### How
 
 1.  Choose a directory for your fixtures e.g. `./fixtures`
-2.  Create any mix of JSON (`.json`), JavaScript (`.js`), or TypeScript files (`.ts`) files. (see file rules below)
+2.  Create any mix of JSON (`.json`), JavaScript (`.js`) files. (see file rules below)
 3.  Each filename defines a MongoDB collection
 
 **JSON Files**
@@ -89,7 +87,7 @@ JSON files are useful when you can represent all of your documents as JSON.
 [{ "name": "Paul", "age": 36 }, { "name": "Phoebe", "age": 26 }]
 ```
 
-**JavaScript (or TypeScript) Files**
+**JavaScript Files**
 
 The name of the JSON file is becomes collection name. Each `.js` or `.ts` files must return a 'JSON Array of JSON objects'. Each JSON object is loaded as a document in the collection.
 
@@ -227,6 +225,7 @@ const options = null;
 
 const fixtures = new Fixtures({
   dir: 'examples/fixtures',
+  filter: '.*',
 });
 
 fixtures
@@ -289,7 +288,7 @@ Contributors are welcome!
 Special thanks to those who have contributed:
 
 - [cdimascio](https://www.github.com/cdimascio)
-- [Mykolas-Molis](https://github.com/Mykolas-Molis)
+- [Mykolas-Zenitech](https://github.com/Mykolas-Zenitech)
 - [westyside](https://github.com/westyside)
 
 ## License
