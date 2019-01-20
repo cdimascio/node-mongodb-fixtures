@@ -3,7 +3,10 @@
 ![](https://img.shields.io/badge/status-stable-green.svg) ![](https://img.shields.io/badge/license-MIT-blue.svg)
 
 **Setup and tear down test fixtures with MongoDB.**
+
 Use custom scripts to create indexes and more!
+
+Use the CLI or the Node module.
 
 ![](https://github.com/cdimascio/node-mongodb-fixtures/raw/3fd02679f26a21f18d5115626a5759b5866248a9/assets/mongodb-fixtures-log.png)
 
@@ -20,8 +23,6 @@ For CLI use, it can be useful to install globally:
 ```shell
 npm install node-mongodb-fixtures -g
 ```
-
----
 
 ## Usage
 
@@ -57,13 +58,16 @@ The following example will load the example fixtures into a locally running Mong
 ### Run the example
 
 1. Clone the reop
-  ```shell
-  git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
-  ```
+
+```shell
+git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
+```
+
 2. Load the fixtures into MongoDb
-  ```shell
-  node bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures
-  ```
+
+```shell
+node bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./examples/fixtures
+```
 
 ---
 
@@ -167,7 +171,7 @@ or filter the fixtures present in the directory with a Regex pattern
 const Fixtures = require('node-mongodb-fixtures');
 const fixtures = new Fixtures({
   dir: 'examples/fixtures',
-  filter: 'people.*'
+  filter: 'people.*',
 });
 ```
 
@@ -213,7 +217,7 @@ The following example does the following:
 
 - connects to mongo
 - then unloads all fixtures
-- then load all fixtures
+- then loads all fixtures
 - then disconnects
 
 ```javascript
@@ -258,7 +262,7 @@ fixtures
   Commands:
 
     load
-    unload  
+    unload
     rebuild
 ```
 
