@@ -56,7 +56,7 @@ The following example will load the example fixtures into a locally running Mong
 
 ### Run the example
 
-1. Clone the reop
+1. Clone the repo
 
 ```shell
 git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
