@@ -43,7 +43,7 @@ fixtures
 ### CLI
 
 ```shell
-❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb'
+❯ mongodb-fixtures load -u mongodb://localhost:27017/mydb
 ```
 
 [See detailed cli usage below](#cli-usage)
@@ -59,7 +59,7 @@ The following example will load the example fixtures into a locally running Mong
 1. Clone the repo
 
 ```shell
-git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install`
+git clone https://github.com/cdimascio/node-mongodb-fixtures && cd node-mongodb-fixtures && npm install
 ```
 
 2. Load the fixtures into MongoDb
@@ -94,8 +94,8 @@ The name of the JSON file is becomes collection name. Each `.js` or `.ts` files 
 
 JavaScript files are useful when you require code to represent your documents.
 
-```JavaScript
-var ObjectId = require('mongodb').ObjectID;
+```javascript
+const { ObjectID: ObjectId } = require('mongodb');
 
 module.exports = [
   { _id: ObjectId(), name: 'Paul', 'age': 36 },
@@ -126,7 +126,7 @@ See `./examples/fixtures`
 
 #### Example
 
-```Javascript
+```javascript
 // people_.js
 module.exports = function(collection) {
   // Write your custom logic and return a promise
