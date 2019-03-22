@@ -1,6 +1,6 @@
 # node-mongodb-fixtures
 
-![](https://img.shields.io/badge/status-stable-green.svg) ![](https://img.shields.io/npm/dm/node-mongodb-fixtures.svg)
+![](https://img.shields.io/badge/status-stable-green.svg) ![](https://img.shields.io/npm/v/node-mongodb-fixtures.svg) ![](https://img.shields.io/npm/dm/node-mongodb-fixtures.svg)
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
 
 **Setup and tear down test fixtures with MongoDB.**
