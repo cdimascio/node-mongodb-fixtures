@@ -80,7 +80,7 @@ node bin/mongodb-fixtures load -u mongodb://localhost:27017/mydb --path ./exampl
 
 **JSON Files**
 
-The name of the JSON file is becomes collection name. Each JSON file **_must_** contain a 'JSON Array of JSON objects'. Each JSON object is loaded as a document in the collection.
+The name of the JSON file is/will be the collection name. Each JSON file **_must_** contain a 'JSON Array of JSON objects'. Each JSON object is loaded as a document in the collection.
 
 JSON files are useful when you can represent all of your documents as JSON.
 
@@ -90,7 +90,7 @@ JSON files are useful when you can represent all of your documents as JSON.
 
 **JavaScript Files**
 
-The name of the JSON file is becomes collection name. Each `.js` or `.ts` files must return a 'JSON Array of JSON objects'. Each JSON object is loaded as a document in the collection.
+The name of the JSON file is/will be the collection name. Each `.js` file must return a 'JSON Array of JSON objects'. Each JSON object is loaded as a document in the collection.
 
 JavaScript files are useful when you require code to represent your documents.
 
