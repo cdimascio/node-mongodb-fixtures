@@ -291,6 +291,7 @@ Special thanks to those who have contributed:
 - [cdimascio](https://www.github.com/cdimascio)
 - [Mykolas-Zenitech](https://github.com/Mykolas-Zenitech)
 - [westyside](https://github.com/westyside)
+- [mushketyk](https://github.com/mushketyk)
 - [leeandher](https://github.com/leeandher)
 
 ## License
