@@ -1,6 +1,6 @@
 {
   "name": "node-mongodb-fixtures",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "A package and CLI for MongoDB fixtures",
   "main": "index.js",
   "scripts": {
