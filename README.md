@@ -9,6 +9,8 @@ Use custom scripts to create indexes and more!
 
 ![](https://raw.githubusercontent.com/cdimascio/node-mongodb-fixtures/master/assets/mongodb-fixtures-logo.png)
 
+[![GitHub stars](https://img.shields.io/github/stars/cdimascio/node-mongodb-fixtures.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/cdimascio/node-mongodb-fixtures/stargazers/) [![Twitter URL](https://img.shields.io/twitter/url/https/github.com/cdimascio/node-mongodb-fixtures.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20node-mongodb-fixtures%20by%20%40CarmineDiMascio%20https%3A%2F%2Fgithub.com%2Fcdimascio%2Fnode-mongodb-fixtures%20%F0%9F%91%8D)
+
 ## Install
 
 ```shell
