@@ -3,7 +3,7 @@ const Fixtures = require('../index');
 // The MongoDB Connection URL
 const uri = 'mongodb://localhost:27017/mydb';
 
-// The MongoDB options object
+// The MongoDB native drive options object
 const mongoOpts = {};
 // const mongoOpts = {
 //   ssl: true,
