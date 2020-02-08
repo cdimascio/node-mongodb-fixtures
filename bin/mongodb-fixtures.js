@@ -69,7 +69,6 @@ function main(opts) {
   if (opts.program.ssl_ca) {
     mongoOptions.ssl = true;
     mongoOptions.sslCA = [fs.readFileSync(opts.program.ssl_ca)];
-    // mongoOptions.sslCA = [new Buffer(program.ssl_ca, 'base64')];
   }
 
   const fixtures = new Fixtures({ dir: dir, filter: filter });
