@@ -31,7 +31,11 @@ program
   .option('-n --ssl_novalidate', 'use SSL with no verification', false)
   .option('-c --ssl_ca <path/to/cert>', 'path to cert', false)
   .option('-p --path <path>', 'resource path. Default ./' + DEFAULT_PATH, false)
-  .option('-f --filter <pattern>', 'regex pattern to filter fixture names e.g. \'.*people\'', false)
+  .option(
+    '-f --filter <pattern>',
+    "regex pattern to filter fixture names e.g. '.*people'",
+    false
+  )
   .option('-b --verbose', 'verbose logs', false);
 
 program.parse(process.argv);
@@ -39,7 +43,9 @@ program.parse(process.argv);
 validate();
 
 const dir = program.path
-  ? path.isAbsolute(program.path) ? program.path : path.join(process.cwd(), program.path)
+  ? path.isAbsolute(program.path)
+    ? program.path
+    : path.join(process.cwd(), program.path)
   : path.join(process.cwd(), DEFAULT_PATH);
 
 main({
@@ -56,7 +62,7 @@ function main(opts) {
 
   const uri = program.url;
   const dbName = program.db_name;
-  const mongoOptions = {};
+  const mongoOptions = { useUnifiedTopology: true };
 
   if (opts.program.ssl_novalidate) {
     mongoOptions.ssl = true;
@@ -104,10 +110,8 @@ function main(opts) {
 }
 
 function validate() {
-  if (program.args.length === 0) exit();
   if (!command) exit('Invalid command.');
   if (!program.url) exit('Url required.');
-  if (program.args.length === 0) exit();
 }
 
 function exit(msg) {
