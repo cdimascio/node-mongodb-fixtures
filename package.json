@@ -1,6 +1,6 @@
 {
   "name": "node-mongodb-fixtures",
-  "version": "3.1.2",
+  "version": "3.2.2",
   "description": "A package and CLI for MongoDB fixtures",
   "main": "index.js",
   "scripts": {
@@ -29,12 +29,12 @@
   },
   "homepage": "https://github.com/cdimascio/node-mongodb-fixtures#readme",
   "dependencies": {
-    "bluebird": "^3.5.5",
-    "commander": "^2.20.0",
-    "mongodb": "^3.2.1"
+    "bluebird": "^3.7.2",
+    "commander": "^4.1.1",
+    "mongodb": "^3.5.2"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-plugin-prettier": "^3.1.0"
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2"
   }
 }
