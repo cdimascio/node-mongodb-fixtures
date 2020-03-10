@@ -87,7 +87,10 @@ The name of the JSON file is/will be the collection name. Each JSON file **_must
 JSON files are useful when you can represent all of your documents as JSON.
 
 ```json
-[{ "name": "Paul", "age": 36 }, { "name": "Phoebe", "age": 26 }]
+[
+  { "name": "Paul", "age": 36 }, 
+  { "name": "Phoebe", "age": 26 }
+]
 ```
 
 **JavaScript Files**
