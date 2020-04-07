@@ -1,3 +1,4 @@
+// use js modules to programmatically manipulate fixture data
 var ObjectId = require('mongodb').ObjectID;
 
 module.exports = [
