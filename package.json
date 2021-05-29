@@ -1,6 +1,6 @@
 {
   "name": "node-mongodb-fixtures",
-  "version": "3.2.8",
+  "version": "3.2.9",
   "description": "A package and CLI for MongoDB fixtures",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "commander": "^6.2.0",
-    "mongodb": "^3.6.3"
+    "mongodb": "^3.6.9"
   },
   "devDependencies": {
     "eslint": "^7.14.0",
